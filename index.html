@@ -6,186 +6,189 @@
 <title>Happy Birthday Ximena ❤️</title>
 
 <style>
-  body{
-    margin:0;
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
-    overflow:hidden;
-    background: radial-gradient(circle at top, #ffd1e8, #ffe6c7, #fbc2eb);
-  }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  overflow:hidden;
+  background: radial-gradient(circle at top, #ffd1e8, #ffe6c7, #fbc2eb);
+}
 
-  /* Glow Background */
-  .glow{
-    position:fixed;
-    inset:-20%;
-    filter: blur(70px);
-    opacity:.6;
-    z-index:0;
-    pointer-events:none;
-  }
-  .glow::before,
-  .glow::after{
-    content:"";
-    position:absolute;
-    width:60vmax;
-    height:60vmax;
-    border-radius:50%;
-    background:radial-gradient(circle,#ff2e88,transparent 60%);
-    animation:drift 14s ease-in-out infinite;
-  }
-  .glow::after{
-    background:radial-gradient(circle,#ffce74,transparent 60%);
-    top:40%;
-    left:40%;
-  }
-  @keyframes drift{
-    0%,100%{transform:translate(0,0);}
-    50%{transform:translate(6%,5%);}
-  }
-  .music-on .glow{ animation:pulse 3.5s ease-in-out infinite; }
-  @keyframes pulse{
-    0%,100%{filter:blur(70px) brightness(1);}
-    50%{filter:blur(90px) brightness(1.15);}
-  }
+/* Glow Background */
+.glow{
+  position:fixed;
+  inset:-20%;
+  filter: blur(70px);
+  opacity:.6;
+  z-index:0;
+  pointer-events:none;
+}
+.glow::before,
+.glow::after{
+  content:"";
+  position:absolute;
+  width:60vmax;
+  height:60vmax;
+  border-radius:50%;
+  background:radial-gradient(circle,#ff2e88,transparent 60%);
+  animation:drift 14s ease-in-out infinite;
+}
+.glow::after{
+  background:radial-gradient(circle,#ffce74,transparent 60%);
+  top:40%;
+  left:40%;
+}
+@keyframes drift{
+  0%,100%{transform:translate(0,0);}
+  50%{transform:translate(6%,5%);}
+}
+.music-on .glow{
+  animation:pulse 3.5s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{filter:blur(70px) brightness(1);}
+  50%{filter:blur(90px) brightness(1.15);}
+}
 
-  /* Pages */
-  .page{
-    position:absolute;
-    inset:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    padding:20px;
-    text-align:center;
-    transition:.6s ease;
-  }
-  .hidden{
-    opacity:0;
-    pointer-events:none;
-    transform:scale(.95);
-  }
+/* Pages */
+.page{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  padding:20px;
+  text-align:center;
+  transition:.6s ease;
+}
+.hidden{
+  opacity:0;
+  pointer-events:none;
+  transform:scale(.95);
+}
 
-  /* Card */
-  .card{
-    background:rgba(255,255,255,.92);
-    padding:35px;
-    border-radius:22px;
-    box-shadow:0 20px 45px rgba(0,0,0,.2);
-    max-width:650px;
-    z-index:2;
-  }
-  h1{font-size:clamp(34px,6vw,56px); margin: 0 0 10px;}
-  .name{color:#ff2e88;font-weight:900;}
-  p{font-size:18px;line-height:1.6; margin: 0 0 16px;}
+/* Card */
+.card{
+  background:rgba(255,255,255,.92);
+  padding:35px;
+  border-radius:22px;
+  box-shadow:0 20px 45px rgba(0,0,0,.2);
+  max-width:650px;
+  z-index:2;
+}
+h1{font-size:clamp(34px,6vw,56px);}
+.name{color:#ff2e88;font-weight:900;}
+p{font-size:18px;line-height:1.6;}
 
-  button{
-    margin:8px;
-    padding:12px 18px;
-    border:none;
-    border-radius:999px;
-    font-weight:900;
-    cursor:pointer;
-    color:white;
-    font-size:16px;
-  }
-  .celebrate{background:#ff2e88;}
-  .music{background:#111827;}
-  .next{background:#0f172a;}
-  .back{background:#111827;}
+button{
+  margin:8px;
+  padding:12px 18px;
+  border:none;
+  border-radius:999px;
+  font-weight:900;
+  cursor:pointer;
+  color:white;
+  font-size:16px;
+}
+.celebrate{background:#ff2e88;}
+.music{background:#111827;}
+.next{background:#0f172a;}
+.back{background:#111827;}
 
-  /* Hearts */
-  .heart{
-    position:fixed;
-    bottom:-20px;
-    font-size:22px;
-    animation:float 6s linear forwards;
-    z-index: 1;
-    pointer-events:none;
-  }
-  @keyframes float{
-    to{transform:translateY(-110vh) rotate(360deg);opacity:0;}
-  }
+/* Hearts */
+.heart{
+  position:fixed;
+  bottom:-20px;
+  font-size:22px;
+  animation:float 6s linear forwards;
+  z-index:1;
+}
+@keyframes float{
+  to{transform:translateY(-110vh) rotate(360deg);opacity:0;}
+}
 
-  /* Second Page */
-  .frame{
-    position:relative;
-    background:rgba(255,255,255,.92);
-    padding:40px;
-    border-radius:22px;
-    box-shadow:0 20px 45px rgba(0,0,0,.2);
-    max-width:900px;
-    z-index:2;
-  }
-  .note{
-    max-width:550px;
-    margin:auto;
-    background:rgba(255,255,255,.85);
-    padding:20px;
-    border-radius:18px;
-    line-height:1.7;
-    font-size:18px;
-    text-align:left;
-  }
+/* Second Page Layout */
+.frame{
+  position:relative;
+  background:rgba(255,255,255,.92);
+  border-radius:22px;
+  box-shadow:0 20px 45px rgba(0,0,0,.2);
+  max-width:1000px;
+  padding:200px; /* space so images never overlap text */
+}
 
-  /* Images around paragraph */
-  .pic{
-    position:absolute;
-    width:160px;
-    height:160px;
-    object-fit:contain;
-    border-radius:18px;
-  }
-  .p1{top:15px;left:15px;transform:rotate(-6deg);}
-  .p2{top:15px;right:15px;transform:rotate(7deg);}
-  .p3{bottom:15px;left:15px;transform:rotate(5deg);}
-  .p4{bottom:15px;right:15px;transform:rotate(-7deg);}
+/* Paragraph */
+.note{
+  max-width:550px;
+  margin:auto;
+  background:rgba(255,255,255,.9);
+  padding:25px;
+  border-radius:18px;
+  line-height:1.7;
+  font-size:18px;
+  text-align:left;
+}
 
-  @media(max-width:700px){
-    .pic{width:100px;height:100px;}
-    .note{font-size:16px;}
-  }
+/* Images in corners */
+.pic{
+  position:absolute;
+  width:160px;
+  height:160px;
+  object-fit:contain;
+}
+.p1{top:20px;left:20px;}
+.p2{top:20px;right:20px;}
+.p3{bottom:20px;left:20px;}
+.p4{bottom:20px;right:20px;}
 
-  /* Hide YouTube player (audio only) */
-  #ytplayer{
-    position:fixed;
-    width:1px;
-    height:1px;
-    left:-9999px;
-    top:-9999px;
-    opacity:0;
-  }
+@media(max-width:900px){
+  .frame{padding:130px;}
+  .pic{width:100px;height:100px;}
+}
+
+@media(max-width:600px){
+  .frame{padding:90px;}
+  .note{font-size:16px;}
+}
+
+/* Hide YouTube player */
+#ytplayer{
+  position:fixed;
+  width:1px;
+  height:1px;
+  left:-9999px;
+  top:-9999px;
+}
 </style>
 </head>
 
 <body>
+
 <div class="glow"></div>
 
 <!-- PAGE 1 -->
 <div class="page" id="page1">
   <div class="card">
     <h1>🎂 Happy Birthday <span class="name">Ximena</span> ❤️</h1>
-
-    <p id="message">
-      Ximena… today is about you. And I hope you feel loved every second. 💖
+    <p>
+      Ximena… today is about you...  
+      And I hope you feel loved every second. Siempre voy estar aqui por ti princesa 💖
     </p>
 
     <button class="celebrate" onclick="celebrate()">Celebrate ✨</button>
     <button class="music" id="musicBtn" onclick="toggleMusic()">Play Music 🎶</button>
     <button class="next" onclick="goNext()">Next Page ➜</button>
-
-    <p style="font-size:13px;opacity:.7;margin-top:10px;">
-      (Music starts only after you click a button — browser rule.)
-    </p>
   </div>
 </div>
 
 <!-- PAGE 2 -->
 <div class="page hidden" id="page2">
   <div class="frame">
-    <img src="heart1.png" class="pic p1" alt="">
-    <img src="heart2.png" class="pic p2" alt="">
-    <img src="heart3.png" class="pic p3" alt="">
-    <img src="heart4.png" class="pic p4" alt="">
+
+    <img src="heart1.png" class="pic p1">
+    <img src="heart2.png" class="pic p2">
+    <img src="heart3.png" class="pic p3">
+    <img src="heart4.png" class="pic p4">
 
     <div class="note">
       Happy birthday princess hermosa I cant believe it your 21 its incredible how much times has passed how old you’ve gotten and how beautiful and young you look still you still don’t look above 19 I can’t understand it your just gorgeous and Im beyond proud of the person you have become seriously its amazing im very happy to know you and to be a part of your life you have done so much and by yourself it’s not something just anybody can do and I hope you know that your truly amazing and I hope that you realize just how amazing you are remember you beauty shines brighter than all the stars your put them all to shame your hair is truly silky smooth you smell like a nice summer breeze your smile quite literally makes all my struggles disappear I can’t emphasis this enough thank you for everything you have done for me and im sorry for the pain I have caused you I wish to make it up to you I wish to make you happy to make you smile I wish to be a part of your life again the amo princess y feliz cumplanos hermosa  
@@ -196,70 +199,62 @@
   </div>
 </div>
 
-<!-- YouTube player container (API will create iframe) -->
+<!-- YouTube Music -->
 <div id="ytplayer"></div>
 
 <script>
-  // ---- Two-page navigation ----
-  function goNext(){
-    document.getElementById("page1").classList.add("hidden");
-    document.getElementById("page2").classList.remove("hidden");
+let player;
+let playing=false;
+const musicBtn=document.getElementById("musicBtn");
+
+const tag=document.createElement("script");
+tag.src="https://www.youtube.com/iframe_api";
+document.body.appendChild(tag);
+
+window.onYouTubeIframeAPIReady=function(){
+  player=new YT.Player("ytplayer",{
+    videoId:"DJNYpTK1wnE",
+    playerVars:{playsinline:1,controls:0},
+  });
+};
+
+function toggleMusic(){
+  if(!player)return;
+  if(!playing){
+    player.playVideo();
+    document.body.classList.add("music-on");
+    musicBtn.textContent="Stop Music 🔇";
+    playing=true;
+  }else{
+    player.pauseVideo();
+    document.body.classList.remove("music-on");
+    musicBtn.textContent="Play Music 🎶";
+    playing=false;
   }
-  function goBack(){
-    document.getElementById("page2").classList.add("hidden");
-    document.getElementById("page1").classList.remove("hidden");
+}
+
+function celebrate(){
+  for(let i=0;i<60;i++){
+    const heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML=["💖","❤️","💕","💘"][Math.floor(Math.random()*4)];
+    heart.style.left=Math.random()*window.innerWidth+"px";
+    heart.style.fontSize=(Math.random()*30+20)+"px";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),6000);
   }
+}
 
-  // ---- Hearts ----
-  function celebrate(){
-    for(let i=0;i<60;i++){
-      const heart=document.createElement("div");
-      heart.className="heart";
-      heart.innerHTML=["💖","❤️","💕","💘"][Math.floor(Math.random()*4)];
-      heart.style.left=Math.random()*window.innerWidth+"px";
-      heart.style.fontSize=(Math.random()*30+20)+"px";
-      document.body.appendChild(heart);
-      setTimeout(()=>heart.remove(),6000);
-    }
-  }
+function goNext(){
+  document.getElementById("page1").classList.add("hidden");
+  document.getElementById("page2").classList.remove("hidden");
+}
 
-  // ---- YouTube Music (reliable) ----
-  let player, playing=false, playerReady=false;
-  const musicBtn = document.getElementById("musicBtn");
-
-  // Load API
-  const tag=document.createElement("script");
-  tag.src="https://www.youtube.com/iframe_api";
-  document.body.appendChild(tag);
-
-  window.onYouTubeIframeAPIReady = function(){
-    player = new YT.Player("ytplayer", {
-      videoId: "DJNYpTK1wnE",
-      playerVars: {
-        playsinline: 1,
-        controls: 0,
-        rel: 0
-      },
-      events: {
-        onReady: () => { playerReady = true; }
-      }
-    });
-  };
-
-  function toggleMusic(){
-    if(!playerReady) return; // if API still loading
-    if(!playing){
-      player.playVideo();
-      document.body.classList.add("music-on");
-      musicBtn.textContent = "Stop Music 🔇";
-      playing=true;
-    } else {
-      player.pauseVideo();
-      document.body.classList.remove("music-on");
-      musicBtn.textContent = "Play Music 🎶";
-      playing=false;
-    }
-  }
+function goBack(){
+  document.getElementById("page2").classList.add("hidden");
+  document.getElementById("page1").classList.remove("hidden");
+}
 </script>
+
 </body>
 </html>
