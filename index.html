@@ -1,0 +1,248 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2867
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!doctype html>\
+<html lang="en">\
+<head>\
+<meta charset="utf-8" />\
+<meta name="viewport" content="width=device-width, initial-scale=1" />\
+<title>Happy Birthday Ximena \uc0\u10084 \u65039 </title>\
+\
+<style>\
+body\{\
+  margin:0;\
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;\
+  overflow:hidden;\
+  background: radial-gradient(circle at top, #ffd1e8, #ffe6c7, #fbc2eb);\
+\}\
+\
+/* Glow Background */\
+.glow\{\
+  position:fixed;\
+  inset:-20%;\
+  filter: blur(70px);\
+  opacity:.6;\
+  z-index:0;\
+\}\
+.glow::before,\
+.glow::after\{\
+  content:"";\
+  position:absolute;\
+  width:60vmax;\
+  height:60vmax;\
+  border-radius:50%;\
+  background:radial-gradient(circle,#ff2e88,transparent 60%);\
+  animation:drift 14s ease-in-out infinite;\
+\}\
+.glow::after\{\
+  background:radial-gradient(circle,#ffce74,transparent 60%);\
+  top:40%;\
+  left:40%;\
+\}\
+@keyframes drift\{\
+  0%,100%\{transform:translate(0,0);\}\
+  50%\{transform:translate(6%,5%);\}\
+\}\
+.music-on .glow\{\
+  animation:pulse 3.5s ease-in-out infinite;\
+\}\
+@keyframes pulse\{\
+  0%,100%\{filter:blur(70px) brightness(1);\}\
+  50%\{filter:blur(90px) brightness(1.15);\}\
+\}\
+\
+/* Pages */\
+.page\{\
+  position:absolute;\
+  inset:0;\
+  display:flex;\
+  align-items:center;\
+  justify-content:center;\
+  flex-direction:column;\
+  padding:20px;\
+  text-align:center;\
+  transition:.6s ease;\
+\}\
+.hidden\{\
+  opacity:0;\
+  pointer-events:none;\
+  transform:scale(.95);\
+\}\
+\
+/* Card */\
+.card\{\
+  background:rgba(255,255,255,.92);\
+  padding:35px;\
+  border-radius:22px;\
+  box-shadow:0 20px 45px rgba(0,0,0,.2);\
+  max-width:650px;\
+  z-index:2;\
+\}\
+\
+h1\{font-size:clamp(34px,6vw,56px);\}\
+.name\{color:#ff2e88;font-weight:900;\}\
+p\{font-size:18px;line-height:1.6;\}\
+\
+button\{\
+  margin:8px;\
+  padding:12px 18px;\
+  border:none;\
+  border-radius:999px;\
+  font-weight:900;\
+  cursor:pointer;\
+  color:white;\
+  font-size:16px;\
+\}\
+.celebrate\{background:#ff2e88;\}\
+.music\{background:#111827;\}\
+.next\{background:#0f172a;\}\
+.back\{background:#111827;\}\
+\
+/* Hearts */\
+.heart\{\
+  position:fixed;\
+  bottom:-20px;\
+  font-size:22px;\
+  animation:float 6s linear forwards;\
+\}\
+@keyframes float\{\
+  to\{transform:translateY(-110vh) rotate(360deg);opacity:0;\}\
+\}\
+\
+/* Second Page */\
+.frame\{\
+  position:relative;\
+  background:rgba(255,255,255,.92);\
+  padding:40px;\
+  border-radius:22px;\
+  box-shadow:0 20px 45px rgba(0,0,0,.2);\
+  max-width:900px;\
+\}\
+\
+.note\{\
+  max-width:550px;\
+  margin:auto;\
+  background:rgba(255,255,255,.85);\
+  padding:20px;\
+  border-radius:18px;\
+  line-height:1.7;\
+  font-size:18px;\
+\}\
+\
+/* Images */\
+.pic\{\
+  position:absolute;\
+  width:160px;\
+  height:160px;\
+  object-fit:contain;\
+  border-radius:18px;\
+\}\
+.p1\{top:15px;left:15px;transform:rotate(-6deg);\}\
+.p2\{top:15px;right:15px;transform:rotate(7deg);\}\
+.p3\{bottom:15px;left:15px;transform:rotate(5deg);\}\
+.p4\{bottom:15px;right:15px;transform:rotate(-7deg);\}\
+\
+@media(max-width:700px)\{\
+.pic\{width:100px;height:100px;\}\
+.note\{font-size:16px;\}\
+\}\
+</style>\
+</head>\
+\
+<body>\
+\
+<div class="glow"></div>\
+\
+<!-- PAGE 1 -->\
+<div class="page" id="page1">\
+  <div class="card">\
+    <h1>\uc0\u55356 \u57218  Happy Birthday <span class="name">Ximena</span> \u10084 \u65039 </h1>\
+    <p>\
+      Ximena\'85 today is about you.  \
+      And I hope you feel loved every second. \uc0\u55357 \u56470 \
+    </p>\
+\
+    <button class="celebrate" onclick="celebrate()">Celebrate \uc0\u10024 </button>\
+    <button class="music" onclick="toggleMusic()">Play Music \uc0\u55356 \u57270 </button>\
+    <button class="next" onclick="goNext()">Next Page \uc0\u10140 </button>\
+  </div>\
+</div>\
+\
+<!-- PAGE 2 -->\
+<div class="page hidden" id="page2">\
+  <div class="frame">\
+\
+    <img src="heart1.png" class="pic p1">\
+    <img src="heart2.png" class="pic p2">\
+    <img src="heart3.png" class="pic p3">\
+    <img src="heart4.png" class="pic p4">\
+\
+    <div class="note">\
+      (PASTE YOUR PARAGRAPH HERE)\
+    </div>\
+\
+    <br>\
+    <button class="back" onclick="goBack()">\uc0\u8592  Back</button>\
+  </div>\
+</div>\
+\
+<iframe\
+  id="ytplayer"\
+  src="https://www.youtube.com/embed/DJNYpTK1wnE?enablejsapi=1&playsinline=1"\
+  frameborder="0"\
+  allow="autoplay">\
+</iframe>\
+\
+<script>\
+let player;\
+let playing=false;\
+\
+const tag=document.createElement("script");\
+tag.src="https://www.youtube.com/iframe_api";\
+document.body.appendChild(tag);\
+\
+window.onYouTubeIframeAPIReady=function()\{\
+  player=new YT.Player("ytplayer");\
+\};\
+\
+function toggleMusic()\{\
+  if(!playing)\{\
+    player.playVideo();\
+    document.body.classList.add("music-on");\
+    playing=true;\
+  \}else\{\
+    player.pauseVideo();\
+    document.body.classList.remove("music-on");\
+    playing=false;\
+  \}\
+\}\
+\
+function celebrate()\{\
+  for(let i=0;i<60;i++)\{\
+    const heart=document.createElement("div");\
+    heart.className="heart";\
+    heart.innerHTML=["\uc0\u55357 \u56470 ","\u10084 \u65039 ","\u55357 \u56469 ","\u55357 \u56472 "][Math.floor(Math.random()*4)];\
+    heart.style.left=Math.random()*window.innerWidth+"px";\
+    heart.style.fontSize=(Math.random()*30+20)+"px";\
+    document.body.appendChild(heart);\
+    setTimeout(()=>heart.remove(),6000);\
+  \}\
+\}\
+\
+function goNext()\{\
+  document.getElementById("page1").classList.add("hidden");\
+  document.getElementById("page2").classList.remove("hidden");\
+\}\
+\
+function goBack()\{\
+  document.getElementById("page2").classList.add("hidden");\
+  document.getElementById("page1").classList.remove("hidden");\
+\}\
+</script>\
+\
+</body>\
+</html>}
