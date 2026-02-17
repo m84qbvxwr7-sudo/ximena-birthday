@@ -103,9 +103,7 @@
   .name{color:#ff2e88;font-weight:900;}
   p{font-size:18px;line-height:1.6; margin: 0 0 16px;}
 
-  .music-on .card{
-    animation: cardBeat 1.05s ease-in-out infinite;
-  }
+  .music-on .card{ animation: cardBeat 1.05s ease-in-out infinite; }
   @keyframes cardBeat{
     0%   { transform: translateZ(0) scale(1); }
     30%  { transform: translateZ(0) scale(1.01); }
@@ -144,75 +142,75 @@
     to{transform:translateY(-110vh) rotate(360deg);opacity:0;}
   }
 
-  /* Page 2 frame: safe spacing so images never cover paragraph */
+  /* Page 2 layout */
   .frame{
-    position:relative;
+    width: min(1000px, 100%);
     background:rgba(255,255,255,.92);
     border-radius:22px;
     box-shadow:0 20px 45px rgba(0,0,0,.2);
-    max-width:1000px;
-    padding:200px; /* pushes paragraph away from corners */
+    padding: 26px;
     z-index:3;
+    display:grid;
+    gap:16px;
+    grid-template-columns: 1fr;
+    max-height: calc(100vh - 60px);
+    overflow:auto;  /* IMPORTANT for phones */
+    -webkit-overflow-scrolling: touch;
   }
 
   .note{
-    max-width:550px;
-    margin:auto;
+    max-width: 680px;
+    margin: 0 auto;
     background:rgba(255,255,255,.9);
-    padding:25px;
+    padding:20px;
     border-radius:18px;
     line-height:1.7;
     font-size:18px;
     text-align:left;
   }
 
-  /* Corner images */
+  /* Collage row (desktop defaults) */
+  .collage{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+  }
   .pic{
-    position:absolute;
-    width:160px;
-    height:160px;
-    object-fit:contain;
-    border-radius:18px;
-    z-index:2;
-    background: rgba(255,255,255,.5);
+    width: 170px;
+    height: 170px;
+    object-fit: contain;
+    border-radius: 18px;
+    background: rgba(255,255,255,.55);
     box-shadow: 0 10px 25px rgba(0,0,0,.12);
   }
-  .p1{top:20px;left:20px; transform: rotate(-6deg); }
-  .p2{top:20px;right:20px; transform: rotate(7deg); }
-  .p3{bottom:20px;left:20px; transform: rotate(5deg); }
-  .p4{bottom:20px;right:20px; transform: rotate(-7deg); }
-
-  .music-on .pic{
-    animation: picBeat 1.05s ease-in-out infinite;
-  }
+  .music-on .pic{ animation: picBeat 1.05s ease-in-out infinite; }
   @keyframes picBeat{
-    0%   { transform: scale(1) rotate(var(--r,0deg)); }
-    30%  { transform: scale(1.04) rotate(var(--r,0deg)); }
-    65%  { transform: scale(1.01) rotate(var(--r,0deg)); }
-    100% { transform: scale(1) rotate(var(--r,0deg)); }
-  }
-  .p1{ --r:-6deg; }
-  .p2{ --r:7deg; }
-  .p3{ --r:5deg; }
-  .p4{ --r:-7deg; }
-
-  /* If image fails, show a cute placeholder */
-  .pic-fallback{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#111827;
-    font-weight:900;
-    font-size:14px;
+    0%   { transform: scale(1); }
+    30%  { transform: scale(1.04); }
+    65%  { transform: scale(1.01); }
+    100% { transform: scale(1); }
   }
 
-  @media(max-width:900px){
-    .frame{padding:130px;}
-    .pic{width:100px;height:100px;}
-  }
-  @media(max-width:600px){
-    .frame{padding:90px;}
-    .note{font-size:16px;}
+  /* PHONE: use a tidy 2x2 grid */
+  @media (max-width: 620px){
+    body{ overflow:auto; } /* allow scrolling on very small screens */
+    .card{ padding: 24px; }
+    p{ font-size: 16px; }
+    .note{ font-size: 16px; }
+
+    .collage{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      justify-items:center;
+    }
+    .pic{
+      width: 42vw;
+      max-width: 170px;
+      height: 42vw;
+      max-height: 170px;
+    }
   }
 
   /* Hide YouTube player */
@@ -253,18 +251,22 @@
   <!-- PAGE 2 -->
   <div class="page hidden" id="page2">
     <div class="frame">
-      <!-- These will be filled in by JS so filenames can be auto-detected -->
-      <img id="img1" class="pic p1" alt="Photo 1">
-      <img id="img2" class="pic p2" alt="Photo 2">
-      <img id="img3" class="pic p3" alt="Photo 3">
-      <img id="img4" class="pic p4" alt="Photo 4">
+      <!-- Images now in a collage/grid so they fit on phones -->
+      <div class="collage">
+        <img id="img1" class="pic" alt="Photo 1">
+        <img id="img2" class="pic" alt="Photo 2">
+        <img id="img3" class="pic" alt="Photo 3">
+        <img id="img4" class="pic" alt="Photo 4">
+      </div>
 
       <div class="note">
         Happy birthday princess hermosa I cant believe it your 21 its incredible how much times has passed how old you’ve gotten and how beautiful and young you look still you still don’t look above 19 I can’t understand it your just gorgeous and Im beyond proud of the person you have become seriously its amazing im very happy to know you and to be a part of your life you have done so much and by yourself it’s not something just anybody can do and I hope you know that your truly amazing and I hope that you realize just how amazing you are remember you beauty shines brighter than all the stars your put them all to shame your hair is truly silky smooth you smell like a nice summer breeze your smile quite literally makes all my struggles disappear I can’t emphasis this enough thank you for everything you have done for me and im sorry for the pain I have caused you I wish to make it up to you I wish to make you happy to make you smile I wish to be a part of your life again the amo princess y feliz cumplanos hermosa  
+
       </div>
 
-      <br>
-      <button class="back" onclick="goBack()">← Back</button>
+      <div style="text-align:center;">
+        <button class="back" onclick="goBack()">← Back</button>
+      </div>
     </div>
   </div>
 
@@ -273,31 +275,22 @@
 
 <script>
   // ---------------------------
-  // ✅ IMAGE AUTO-FINDER
+  // IMAGE AUTO-FINDER
   // ---------------------------
-  // Put your images in the repo root, OR in a folder and add "images/" prefix here.
-  // Best: rename to heart1.png ... heart4.png and you're done.
   const IMAGE_CANDIDATES = [
-    // Recommended names (root)
     ["heart1.png","heart2.png","heart3.png","heart4.png"],
-    // Common alternates (root)
-    ["img1.png","img2.png","img3.png","img4.png"],
-    ["img1.jpg","img2.jpg","img3.jpg","img4.jpg"],
-    ["img1.jpeg","img2.jpeg","img3.jpeg","img4.jpeg"],
-    // If you used an /images folder
+    ["Heart1.png","Heart2.png","Heart3.png","Heart4.png"],
+    ["heart1.PNG","heart2.PNG","heart3.PNG","heart4.PNG"],
     ["images/heart1.png","images/heart2.png","images/heart3.png","images/heart4.png"],
-    ["images/img1.png","images/img2.png","images/img3.png","images/img4.png"],
-    ["images/img1.jpg","images/img2.jpg","images/img3.jpg","images/img4.jpg"],
-    ["images/img1.jpeg","images/img2.jpeg","images/img3.jpeg","images/img4.jpeg"]
+    ["images/Heart1.png","images/Heart2.png","images/Heart3.png","images/Heart4.png"],
+    ["images/heart1.PNG","images/heart2.PNG","images/heart3.PNG","images/heart4.PNG"],
   ];
 
   async function urlExists(url){
     try{
       const res = await fetch(url, { method:"HEAD", cache:"no-store" });
       return res.ok;
-    }catch(e){
-      return false;
-    }
+    }catch(e){ return false; }
   }
 
   async function pickImageSet(){
@@ -308,33 +301,22 @@
     return null;
   }
 
-  function setFallback(imgEl, label){
-    imgEl.removeAttribute("src");
-    imgEl.classList.add("pic-fallback");
-    imgEl.style.objectFit = "contain";
-    imgEl.style.padding = "10px";
-    imgEl.alt = label;
-    imgEl.outerHTML = `<div class="${imgEl.className}" style="${imgEl.getAttribute("style") || ""}">Missing<br>${label}</div>`;
-  }
-
   async function loadImages(){
     const ids = ["img1","img2","img3","img4"];
     const chosen = await pickImageSet();
 
-    if(!chosen){
-      // No matches found: show placeholders
-      ids.forEach((id, i) => {
-        const el = document.getElementById(id);
-        if(el) setFallback(el, `Image ${i+1}`);
-      });
-      return;
-    }
-
     ids.forEach((id, i) => {
       const el = document.getElementById(id);
       if(!el) return;
+
+      if(!chosen){
+        // fallback if not found
+        el.style.display = "none";
+        return;
+      }
+
       el.src = chosen[i];
-      el.onerror = () => setFallback(el, chosen[i]);
+      el.onerror = () => { el.style.display = "none"; };
     });
   }
 
@@ -366,7 +348,7 @@
   }
 
   // ---------------------------
-  // YouTube Music (reliable)
+  // YouTube Music
   // ---------------------------
   let player;
   let playing=false;
@@ -385,10 +367,10 @@
     });
   };
 
-  // Beat-simulated FX controller
+  // Beat-simulated FX
   const beatFlash = document.getElementById("beatFlash");
   let beatTimer = null;
-  const BEAT_MS = 1050; // adjust: 750 faster, 1200 slower
+  const BEAT_MS = 1050; // 750 faster / 1200 slower
 
   function startBeatFX(){
     stopBeatFX();
@@ -396,7 +378,7 @@
       beatFlash.classList.add("on");
       setTimeout(()=>beatFlash.classList.remove("on"), 130);
 
-      if(Math.random() < 0.35){
+      if(Math.random() < 0.25){
         const heart=document.createElement("div");
         heart.className="heart";
         heart.innerHTML=["💖","❤️","💕"][Math.floor(Math.random()*3)];
@@ -432,7 +414,6 @@
     }
   }
 
-  // Load images when page loads
   window.addEventListener("load", loadImages);
 </script>
 </body>
